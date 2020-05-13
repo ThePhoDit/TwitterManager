@@ -4,6 +4,8 @@
   "description": "TwitterManager",
   "main": "index.js",
   "scripts": {
+    "windows": "windows.cmd",
+    "linux": "bash linux.sh",
     "start": "node index.js"
   },
   "repository": {
