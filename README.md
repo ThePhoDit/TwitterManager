@@ -2,7 +2,7 @@
 
 Publish tweets to your account with a single Discord command.
 
-> This bot was created in 20 minutes just for curiosity. Any improvement is welcomed, so feel free to send a PR.
+> This bot was created under 20 minutes just for curiosity. Any improvements are welcomed, so feel free to send a PR.
 
 ## Configuration Guide
 

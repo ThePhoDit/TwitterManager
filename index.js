@@ -29,7 +29,7 @@ bot.on('message', async msg => {
     const embed = new MessageEmbed()
       .setTitle(tweet ? 'Tweet Sent' : 'Error Tweeting')
       .setColor(tweet ? 3211008 : 16711680)
-      .setDescription(tweet ? `\`${args.join(' ')}\` has been twitted.`: 'There has been an error sending the tweet.');
+      .setDescription(tweet ? `\`${args.join(' ')}\` has been tweeted.`: 'There has been an error sending the tweet.');
 
     msg.channel.send(embed);
   }
