@@ -20,7 +20,13 @@ Publish tweets to your account with a single Discord command.
     - **twitter_consumer_secret:** Key provided by Twitter Developers Page.
     - **twitter_access_token_key:** Key provided by Twitter Developers Page.
     - **twitter_access_token_secret:** Key provided by Twitter Developers Page.
-7. Save changes and run `npm run start` on your terminal.
+7. Add the desired usernames in `accounts.js`. Tweets from this account will be sent to the selected channel.
+8. Save changes and run `npm run start` on your terminal.
+
+## Functions
+
+- Post tweets (tweet command).
+- Send tweets from users to a Discord channel.
 
 ## Warning
 
