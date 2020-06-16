@@ -1,17 +1,20 @@
 const config = require('./config.json');
+const init = require('./utils/Init');
+const stream = require('./utils/Stream');
 const { Client, MessageEmbed } = require('discord.js');
 const bot = new Client();
-const Twitter = require('twitter');
+const Twitter = require('twit');
 const twitter = new Twitter({
   consumer_key: config.twitter_consumer_key,
   consumer_secret: config.twitter_consumer_secret,
-  access_token_key: config.twitter_access_token_key,
+  access_token: config.twitter_access_token_key,
   access_token_secret: config.twitter_access_token_secret
 });
 const params = { screen_name: 'nodejs' };
 
 bot.on('ready', () => {
-  console.log(`Coded by ThePhoDit.\n${bot.user.tag} is online.`);
+  console.log(`Coded by ThePhoDit.\n[DISCORD] ${bot.user.tag} is online.`);
+  init(twitter).then(IDs => stream(bot, twitter, IDs));
 });
 
 bot.on('message', async msg => {

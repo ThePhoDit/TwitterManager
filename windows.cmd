@@ -14,6 +14,10 @@ echo Bot Owner:
 set /p bot_owners=""
 echo   "bot_owners": ["%bot_owners%"], >> config.json
 
+echo Tweets Discord Channel ID:
+set /p channel_id=""
+echo   "channel_id": "%channel_id%", >> config.json
+
 echo Twitter Consumer Key:
 set /p twitter_consumer_key=""
 echo   "twitter_consumer_key": "%twitter_consumer_key%", >> config.json

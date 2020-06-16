@@ -15,6 +15,7 @@ Publish tweets to your account with a single Discord command.
     - **bot_token:** Your Discord Bot Token.
     - **bot_prefix:** The commands' prefix.
     - **bot_owners:** IDs of the users that can use the bot.
+    - **channel_id:** ID of the channel where fetched tweets should go to.
     - **twitter_consumer_key:** Key provided by Twitter Developers Page.
     - **twitter_consumer_secret:** Key provided by Twitter Developers Page.
     - **twitter_access_token_key:** Key provided by Twitter Developers Page.

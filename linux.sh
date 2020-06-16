@@ -6,6 +6,8 @@ echo "Bot's Prefix:"
 read bot_prefix
 echo "Bot Owner:"
 read bot_owners
+echo "Tweets Discord Channel ID:"
+read channel_id
 echo "Twitter Consumer Key:"
 read twitter_consumer_key
 echo "Twitter Consumer Secret:"
@@ -18,10 +20,10 @@ echo "{
   \"bot_token\": \"$bot_token\",
   \"bot_prefix\": \"$bot_prefix\",
   \"bot_owners\": [\"$bot_owners\"],
+  \"channel_id\": \"$channel_id\",
   \"twitter_consumer_key\": \"$twitter_consumer_key\",
   \"twitter_consumer_secret\": \"$twitter_consumer_secret\",
   \"twitter_access_token_key\": \"$twitter_access_token_key\",
-  \"twitter_access_token_secret\": \"$twitter_access_token_key\"
+  \"twitter_access_token_secret\": \"$twitter_access_token_secret\"
 }" > config.json
 echo "Configuration file successfully created."
-  
