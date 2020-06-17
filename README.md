@@ -15,12 +15,18 @@ Publish tweets to your account with a single Discord command.
     - **bot_token:** Your Discord Bot Token.
     - **bot_prefix:** The commands' prefix.
     - **bot_owners:** IDs of the users that can use the bot.
-    - **channel_id:** ID of the channel where fetched tweets should go to.
     - **twitter_consumer_key:** Key provided by Twitter Developers Page.
     - **twitter_consumer_secret:** Key provided by Twitter Developers Page.
     - **twitter_access_token_key:** Key provided by Twitter Developers Page.
     - **twitter_access_token_secret:** Key provided by Twitter Developers Page.
-7. Add the desired usernames in `accounts.js`. Tweets from this account will be sent to the selected channel.
+7. Add the desired usernames in `accounts.js`. The structure is:
+```javascript
+// You can send user's tweets to more than one channel.
+{
+  TwitterAccountUsername1: ['Channel ID 1', 'Channel ID 2', 'etc.'],
+  TwitterAccountUsername2: ['Channel ID 1', 'Channel ID 2', 'etc.']
+}
+```
 8. Save changes and run `npm run start` on your terminal.
 
 ## Functions

@@ -27,7 +27,7 @@ bot.on('message', async msg => {
 
   if (command === 'tweet') {
     if (!args[0]) return msg.channel.send('You must introduce the tweet content.');
-    const tweet = twitter.post('statuses/update', { status: args.join(' ') }).then(() => true).catch(() => false);
+    const tweet = twitter.post('statuses/update', { status: args.join(' ') + msg.attachments.size > 0 ? '\n' + msg.attachments.first().url : '' }).then(() => true).catch(() => false);
 
     const embed = new MessageEmbed()
       .setTitle(tweet ? 'Tweet Sent' : 'Error Tweeting')
