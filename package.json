@@ -1,6 +1,6 @@
 {
   "name": "twitter-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Post tweets with a command from a Discord channel and fetch new tweets of specific users to the selected channels.",
   "main": "index.js",
   "scripts": {

@@ -7,13 +7,12 @@ const { promisify } = require('util');
  * @return {Promise<string[]>}
  */
 module.exports = (T) => {
-	const getAsync = promisify(T.get.bind(T));
 	const userIDs = [];
 	return new Promise(async (resolve) => {
 		for (const account of Object.keys(accounts)) {
-			const user = await getAsync('/users/show', { screen_name: account }).catch(() => false);
+			const user = await T.get('/users/show', { screen_name: account }).catch(() => false);
 			if (!user || user.err || user instanceof Error) continue;
-			userIDs.push(user.id_str);
+			userIDs.push(user.data.id_str);
 		}
 		resolve(userIDs);
 	})
