@@ -4,6 +4,5 @@ STRUCTURE:
  */
 
 module.exports = {
-	ThePhoDit: [],
-	discord: []
+	ThePhoDit: []
 }
