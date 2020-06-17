@@ -1,5 +1,4 @@
 const accounts = require('../accounts');
-const { promisify } = require('util');
 
 /**
  * Get list of Twitter user IDs from the screen name.

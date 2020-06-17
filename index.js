@@ -10,7 +10,6 @@ const twitter = new Twitter({
   access_token: config.twitter_access_token_key,
   access_token_secret: config.twitter_access_token_secret
 });
-const params = { screen_name: 'nodejs' };
 
 bot.on('ready', () => {
   console.log(`Coded by ThePhoDit.\n[DISCORD] ${bot.user.tag} is online.`);
