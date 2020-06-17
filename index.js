@@ -1,6 +1,8 @@
 const config = require('./config.json');
 const init = require('./utils/Init');
 const stream = require('./utils/Stream');
+const Events = require('./Events');
+const events = new Events();
 const { Client, MessageEmbed } = require('discord.js');
 const bot = new Client();
 const Twitter = require('twit');
@@ -11,9 +13,18 @@ const twitter = new Twitter({
   access_token_secret: config.twitter_access_token_secret
 });
 
+let booting = true;
+
+events.on('start', () => {
+  if (booting) {
+    booting = false;
+    init(twitter).then(IDs => stream(bot, twitter, IDs));
+  }
+});
+
 bot.on('ready', () => {
   console.log(`Coded by ThePhoDit.\n[DISCORD] ${bot.user.tag} is online.`);
-  init(twitter).then(IDs => stream(bot, twitter, IDs));
+  events.emit('start');
 });
 
 bot.on('message', async msg => {
@@ -26,6 +37,7 @@ bot.on('message', async msg => {
 
   if (command === 'tweet') {
     if (!args[0]) return msg.channel.send('You must introduce the tweet content.');
+    if (args.join(' ').length > 240) return msg.channel.send('You cannot tweet such a long message.');
     const tweet = twitter.post('statuses/update', { status: `${args.join(' ')}${msg.attachments.size > 0 ? '\n' + msg.attachments.first().url : ''}` }).then(() => true).catch(() => false);
 
     const embed = new MessageEmbed()

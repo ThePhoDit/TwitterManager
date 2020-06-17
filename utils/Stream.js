@@ -25,7 +25,7 @@ module.exports = (client, T, IDs) => {
 				.setTitle(`New Tweet from ${tweet.user.name}`)
 				.setColor(32511)
 				.setThumbnail(tweet.user.profile_image_url_https)
-				.setDescription(tweet.extended_tweet.full_text)
+				.setDescription(tweet.extended_tweet ? tweet.extended_tweet.full_text : tweet.text)
 				.setTimestamp();
 			if (tweet.entities.media) embed.setImage(tweet.entities.media[0].media_url);
 
