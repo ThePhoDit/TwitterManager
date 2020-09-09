@@ -2,17 +2,15 @@ const accounts = require('../accounts');
 
 /**
  * Get list of Twitter user IDs from the screen name.
- * @param T - Twitter Client.
+ * @param {import('twit')} T - Twitter Client.
  * @return {Promise<string[]>}
  */
-module.exports = (T) => {
-	const userIDs = [];
-	return new Promise(async (resolve) => {
-		for (const account of Object.keys(accounts)) {
-			const user = await T.get('/users/show', { screen_name: account }).catch(() => false);
-			if (!user || user.err || user instanceof Error) continue;
-			userIDs.push(user.data.id_str);
-		}
-		resolve(userIDs);
-	})
+module.exports = async (T) => {
+	const unfilteredIDs = await Promise.all(Object.keys(accounts).map(async (value) => {
+		const user = await T.get('/users/show', { screen_name: value }).catch(() => null);
+		if (!user || user.err) return void 0;
+		return (user.data && user.data.id_str) ? user.data.id_str : undefined;
+	}));
+
+	return unfilteredIDs.filter((val) => val);
 }
