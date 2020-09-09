@@ -3,9 +3,9 @@ const accounts = require('../accounts');
 
 /**
  * Create the stream to get events.
- * @param client - The Discord Client.
- * @param T - The Twitter Client.
- * @param IDs - Twitter User IDs.
+ * @param {import('discord.js').Client} client - The Discord Client.
+ * @param {import('twit')} T - The Twitter Client.
+ * @param {string[]} IDs - Twitter User IDs.
  * @return Void
  */
 module.exports = (client, T, IDs) => {
