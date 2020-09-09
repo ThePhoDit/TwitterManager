@@ -32,9 +32,8 @@ module.exports = (client, T, IDs) => {
 			// Get Channel and Send Embed
 			for (const channel of accounts[tweet.user.screen_name]) {
 				const chn = client.channels.cache.get(channel);
-				if (chn) {
-					chn.send(embed).catch(() => false);
-				}
+				if (!chn || !['news', 'text'].includes(chn.type)) return;
+				chn.send(embed).catch(() => false);
 			}
 		}
 	});
